@@ -3,8 +3,8 @@ package test
 import (
 	"testing"
 
-	ed "github.com/RSheremeta/gob-serialization/encode_decode"
-	. "github.com/RSheremeta/gob-serialization/structs"
+	ed "github.com/mokyabun/go-serialization/encode_decode"
+	. "github.com/mokyabun/go-serialization/structs"
 )
 
 // for Gob and JSON usage only!
@@ -19,6 +19,7 @@ func BenchmarkEncodeSingleComplexMap(b *testing.B) {
 	}{
 		{name: "type=GOB struct_size=huge_complex_map", target: NewComplexAndHuge(), encFn: ed.EncodeGob},
 		{name: "type=JSON struct_size=huge_complex_map", target: NewComplexAndHuge(), encFn: ed.EncodeJSON},
+		{name: "type=SONIC_JSON struct_size=huge_complex_map", target: NewComplexAndHuge(), encFn: ed.EncodeSonic},
 	}
 
 	for _, bm := range bnchmkrs {
@@ -45,6 +46,7 @@ func BenchmarkDecodeSingleComplexMap(b *testing.B) {
 	bnchmkrs := []benchmark{
 		{name: "type=GOB struct_size=huge_complex_map", target: NewComplexAndHuge(), encFn: ed.EncodeGob, decFn: ed.DecodeGob},
 		{name: "type=JSON struct_size=huge_complex_map", target: NewComplexAndHuge(), encFn: ed.EncodeJSON, decFn: ed.DecodeJSON},
+		{name: "type=SONIC_JSON struct_size=huge_complex_map", target: NewComplexAndHuge(), encFn: ed.EncodeSonic, decFn: ed.DecodeSonic},
 	}
 
 	for _, bm := range bnchmkrs {
@@ -70,6 +72,7 @@ func BenchmarkEncodeSliceComplexMap(b *testing.B) {
 	}{
 		{name: "type=GOB struct_size=huge_complex_map", target: NewComplexAndHugeSlc(), encFn: ed.EncodeGob},
 		{name: "type=JSON struct_size=huge_complex_map", target: NewComplexAndHugeSlc(), encFn: ed.EncodeJSON},
+		{name: "type=SONIC_JSON struct_size=huge_complex_map", target: NewComplexAndHugeSlc(), encFn: ed.EncodeSonic},
 	}
 
 	for _, bm := range bnchmkrs {
@@ -96,6 +99,7 @@ func BenchmarkDecodeSliceComplexMap(b *testing.B) {
 	bnchmkrs := []benchmark{
 		{name: "type=GOB struct_size=huge_complex_map", target: NewComplexAndHugeSlc(), encFn: ed.EncodeGob, decFn: ed.DecodeGob},
 		{name: "type=JSON struct_size=huge_complex_map", target: NewComplexAndHugeSlc(), encFn: ed.EncodeJSON, decFn: ed.DecodeJSON},
+		{name: "type=SONIC_JSON struct_size=huge_complex_map", target: NewComplexAndHugeSlc(), encFn: ed.EncodeSonic, decFn: ed.DecodeSonic},
 	}
 
 	for _, bm := range bnchmkrs {
@@ -121,6 +125,7 @@ func BenchmarkEncodePtrSliceComplexMap(b *testing.B) {
 	}{
 		{name: "type=GOB struct_size=huge_complex_map", target: NewComplexAndHugePtrSlc(), encFn: ed.EncodeGob},
 		{name: "type=JSON struct_size=huge_complex_map", target: NewComplexAndHugePtrSlc(), encFn: ed.EncodeJSON},
+		{name: "type=SONIC_JSON struct_size=huge_complex_map", target: NewComplexAndHugePtrSlc(), encFn: ed.EncodeSonic},
 	}
 
 	for _, bm := range bnchmkrs {
@@ -147,6 +152,7 @@ func BenchmarkDecodePtrSliceComplexMap(b *testing.B) {
 	bnchmkrs := []benchmark{
 		{name: "type=GOB struct_size=huge_complex_map", target: NewComplexAndHugePtrSlc(), encFn: ed.EncodeGob, decFn: ed.DecodeGob},
 		{name: "type=JSON struct_size=huge_complex_map", target: NewComplexAndHugePtrSlc(), encFn: ed.EncodeJSON, decFn: ed.DecodeJSON},
+		{name: "type=SONIC_JSON struct_size=huge_complex_map", target: NewComplexAndHugePtrSlc(), encFn: ed.EncodeSonic, decFn: ed.DecodeSonic},
 	}
 
 	for _, bm := range bnchmkrs {

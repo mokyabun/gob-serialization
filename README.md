@@ -1,5 +1,6 @@
 # gob-serialization
 
+#### !! This repo is fork version of [gob-serialization by RSheremeta](https://github.com/RSheremeta/gob-serialization) to benchmark [bytedance/sonic](https://github.com/bytedance/sonic) !!
 #### Benchmarking Gob vs other data formats like JSON, XML and YAML.
 
 This repo is made just out of curiosity and has an experimental reasoning.

@@ -5,6 +5,7 @@ import (
 	"encoding/gob"
 	"encoding/json"
 	"encoding/xml"
+	"github.com/bytedance/sonic"
 
 	"gopkg.in/yaml.v3"
 )
@@ -78,6 +79,23 @@ func EncodeYAML(v any) []byte {
 
 func DecodeYAML(b []byte, res any) {
 	if err := yaml.Unmarshal(b, res); err != nil {
+		panic(err)
+	}
+}
+
+// Sonic
+
+func EncodeSonic(v any) []byte {
+	res, err := sonic.Marshal(v)
+	if err != nil {
+		panic(err)
+	}
+
+	return res
+}
+
+func DecodeSonic(b []byte, res any) {
+	if err := sonic.Unmarshal(b, res); err != nil {
 		panic(err)
 	}
 }

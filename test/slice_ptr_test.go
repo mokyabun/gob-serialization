@@ -3,8 +3,8 @@ package test
 import (
 	"testing"
 
-	ed "github.com/RSheremeta/gob-serialization/encode_decode"
-	. "github.com/RSheremeta/gob-serialization/structs"
+	ed "github.com/mokyabun/go-serialization/encode_decode"
+	. "github.com/mokyabun/go-serialization/structs"
 )
 
 func BenchmarkEncodePtrSlice(b *testing.B) {

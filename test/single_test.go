@@ -3,8 +3,8 @@ package test
 import (
 	"testing"
 
-	ed "github.com/RSheremeta/gob-serialization/encode_decode"
-	. "github.com/RSheremeta/gob-serialization/structs"
+	ed "github.com/mokyabun/go-serialization/encode_decode"
+	. "github.com/mokyabun/go-serialization/structs"
 )
 
 func BenchmarkEncodeSingle(b *testing.B) {
@@ -15,20 +15,25 @@ func BenchmarkEncodeSingle(b *testing.B) {
 	}{
 		{name: "type=GOB struct_size=tiny", target: NewTiny(), encFn: ed.EncodeGob},
 		{name: "type=JSON struct_size=tiny", target: NewTiny(), encFn: ed.EncodeJSON},
+		{name: "type=SONIC_JSON struct_size=tiny", target: NewTiny(), encFn: ed.EncodeSonic},
 		{name: "type=XML struct_size=tiny", target: NewTiny(), encFn: ed.EncodeXML},
 		{name: "type=YAML struct_size=tiny", target: NewTiny(), encFn: ed.EncodeYAML},
 
 		{name: "type=GOB struct_size=medium", target: NewMedium(), encFn: ed.EncodeGob},
 		{name: "type=JSON struct_size=medium", target: NewMedium(), encFn: ed.EncodeJSON},
+		{name: "type=SONIC_JSON struct_size=medium", target: NewMedium(), encFn: ed.EncodeSonic},
 		{name: "type=XML struct_size=medium", target: NewMedium(), encFn: ed.EncodeXML},
 		{name: "type=YAML struct_size=medium", target: NewMedium(), encFn: ed.EncodeYAML},
 
 		{name: "type=GOB struct_size=big", target: NewBig(), encFn: ed.EncodeGob},
 		{name: "type=JSON struct_size=big", target: NewBig(), encFn: ed.EncodeJSON},
+		{name: "type=SONIC_JSON struct_size=big", target: NewBig(), encFn: ed.EncodeSonic},
 		{name: "type=XML struct_size=big", target: NewBig(), encFn: ed.EncodeXML},
 		{name: "type=YAML struct_size=big", target: NewBig(), encFn: ed.EncodeYAML},
+
 		{name: "type=GOB struct_size=huge", target: NewHuge(), encFn: ed.EncodeGob},
 		{name: "type=JSON struct_size=huge", target: NewHuge(), encFn: ed.EncodeJSON},
+		{name: "type=SONIC_JSON struct_size=huge", target: NewHuge(), encFn: ed.EncodeSonic},
 		{name: "type=XML struct_size=huge", target: NewHuge(), encFn: ed.EncodeXML},
 		{name: "type=YAML struct_size=huge", target: NewHuge(), encFn: ed.EncodeYAML},
 	}
@@ -58,6 +63,7 @@ func BenchmarkDecodeSingle(b *testing.B) {
 	bnchmkrs := []benchmark{
 		{name: "type=GOB struct_size=tiny", target: NewTiny(), encFn: ed.EncodeGob, decFn: ed.DecodeGob},
 		{name: "type=JSON struct_size=tiny", target: NewTiny(), encFn: ed.EncodeJSON, decFn: ed.DecodeJSON},
+		{name: "type=SONIC_JSON struct_size=tiny", target: NewTiny(), encFn: ed.EncodeSonic, decFn: ed.DecodeSonic},
 		{name: "type=XML struct_size=tiny", target: NewTiny(), encFn: ed.EncodeXML, decFn: ed.DecodeXML},
 		{name: "type=YAML struct_size=tiny", target: NewTiny(), encFn: ed.EncodeYAML, decFn: ed.DecodeYAML},
 	}
@@ -78,6 +84,7 @@ func BenchmarkDecodeSingle(b *testing.B) {
 	bnchmkrs = []benchmark{
 		{name: "type=GOB struct_size=medium", target: NewMedium(), encFn: ed.EncodeGob, decFn: ed.DecodeGob},
 		{name: "type=JSON struct_size=medium", target: NewMedium(), encFn: ed.EncodeJSON, decFn: ed.DecodeJSON},
+		{name: "type=SONIC_JSON struct_size=medium", target: NewMedium(), encFn: ed.EncodeSonic, decFn: ed.DecodeSonic},
 		{name: "type=XML struct_size=medium", target: NewMedium(), encFn: ed.EncodeXML, decFn: ed.DecodeXML},
 		{name: "type=YAML struct_size=medium", target: NewMedium(), encFn: ed.EncodeYAML, decFn: ed.DecodeYAML},
 	}
@@ -98,6 +105,7 @@ func BenchmarkDecodeSingle(b *testing.B) {
 	bnchmkrs = []benchmark{
 		{name: "type=GOB struct_size=big", target: NewBig(), encFn: ed.EncodeGob, decFn: ed.DecodeGob},
 		{name: "type=JSON struct_size=big", target: NewBig(), encFn: ed.EncodeJSON, decFn: ed.DecodeJSON},
+		{name: "type=SONIC_JSON struct_size=big", target: NewBig(), encFn: ed.EncodeSonic, decFn: ed.DecodeSonic},
 		{name: "type=XML struct_size=big", target: NewBig(), encFn: ed.EncodeXML, decFn: ed.DecodeXML},
 		{name: "type=YAML struct_size=huge", target: NewBig(), encFn: ed.EncodeYAML, decFn: ed.DecodeYAML},
 	}
@@ -118,6 +126,7 @@ func BenchmarkDecodeSingle(b *testing.B) {
 	bnchmkrs = []benchmark{
 		{name: "type=GOB struct_size=huge", target: NewHuge(), encFn: ed.EncodeGob, decFn: ed.DecodeGob},
 		{name: "type=JSON struct_size=huge", target: NewHuge(), encFn: ed.EncodeJSON, decFn: ed.DecodeJSON},
+		{name: "type=SONIC_JSON struct_size=huge", target: NewHuge(), encFn: ed.EncodeSonic, decFn: ed.DecodeSonic},
 		{name: "type=XML struct_size=huge", target: NewHuge(), encFn: ed.EncodeXML, decFn: ed.DecodeXML},
 		{name: "type=YAML struct_size=huge", target: NewHuge(), encFn: ed.EncodeYAML, decFn: ed.DecodeYAML},
 	}

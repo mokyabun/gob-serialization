@@ -2,8 +2,7 @@ package main
 
 import (
 	"encoding/gob"
-
-	. "github.com/RSheremeta/gob-serialization/structs"
+	. "github.com/mokyabun/go-serialization/structs"
 )
 
 func init() {
